@@ -25,8 +25,11 @@ import kotlinx.android.synthetic.main.activity_car.enginesize
 import kotlinx.android.synthetic.main.activity_car.model
 import kotlinx.android.synthetic.main.card_car.*
 import org.jetbrains.anko.*
+import java.util.logging.LogManager
 
 class CarActivity : AppCompatActivity(), AnkoLogger {
+
+
 
     var car = CarModel()
     lateinit var app : MainApp
@@ -38,11 +41,17 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_car)
+
+
+
+
         app = application as MainApp
         var edit = false
 
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
+
+
 
 // Edit car details such as model and description // takes what the user changing these fields too and saves.
         if (intent.hasExtra("car_edit")) {
@@ -60,6 +69,12 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.save_car)
         }
 
+        LoginButton.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+
+        }
+
         carLocation.setOnClickListener {
             val location = Location(52.245696, -7.139102, 15f)
             if (car.zoom != 0f) {
@@ -68,7 +83,14 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
                 location.zoom = car.zoom
             }
             startActivityForResult(intentFor<MapsActivity>().putExtra("location", location), LOCATION_REQUEST)
+
+
         }
+
+
+
+
+
 
 // Adding car to the recycler view also if all fields are not entered by the user the car will not be added to the list.
         btnAdd.setOnClickListener() {
@@ -160,6 +182,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
     }
 
 
+
 //select car image and location.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -180,7 +203,11 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
                 }
             }
         }
+
+
     }
+
+
 
 
 }

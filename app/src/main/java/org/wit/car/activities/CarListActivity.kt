@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
+import kotlinx.android.synthetic.main.activity_car.*
 import kotlinx.android.synthetic.main.activity_car_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
@@ -38,6 +39,8 @@ class CarListActivity : AppCompatActivity(), CarListener {
         return super.onCreateOptionsMenu(menu)
     }
 
+
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_add -> startActivityForResult<CarActivity>(0)
@@ -60,8 +63,14 @@ class CarListActivity : AppCompatActivity(), CarListener {
         showCars(app.cars.findAll())
     }
 
+
+
     fun showCars (cars: List<CarModel>) {
         recyclerView.adapter = CarAdapter(cars, this)
         recyclerView.adapter?.notifyDataSetChanged()
     }
+
+
+
+
 }
