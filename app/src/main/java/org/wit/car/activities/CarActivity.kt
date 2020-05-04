@@ -33,8 +33,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
     val IMAGE_REQUEST = 1
     val LOCATION_REQUEST = 2
     var edit = false;
-    //var location = Location(52.245696, -7.139102, 15f)
-    // var location = Location(52.245696, -7.139102, 15f)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +44,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
 
+// Edit car details such as model and description.
         if (intent.hasExtra("car_edit")) {
             edit = true
             car = intent.extras.getParcelable<CarModel>("car_edit")
@@ -70,7 +70,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
             startActivityForResult(intentFor<MapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
 
-
+// Adding car to the recycler view also if all fields are not entered the car will not be added.
         btnAdd.setOnClickListener() {
             car.title = carTitle.text.toString()
             car.description = description.text.toString()
@@ -143,7 +143,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
         menuInflater.inflate(R.menu.menu_car, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
+// delete selected car method.
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_delete -> {
@@ -158,7 +158,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
     }
 
 
-
+//Changing car image and location.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
