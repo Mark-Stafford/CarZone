@@ -130,6 +130,8 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
 
             info("add Button Pressed: $carTitle")
             setResult(AppCompatActivity.RESULT_OK)
+            finish()
+
             
         }
 
