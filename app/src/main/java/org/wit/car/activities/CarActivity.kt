@@ -41,12 +41,8 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_car)
-
-
-
-
         app = application as MainApp
-        var edit = false
+
 
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
@@ -144,13 +140,12 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
                 }
             }
 
-
-
+            
             info("add Button Pressed: $carTitle")
             setResult(AppCompatActivity.RESULT_OK)
             finish()
 
-            
+
         }
 
         chooseImage.setOnClickListener {
@@ -161,6 +156,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_car, menu)
+        if (edit && menu != null) menu.getItem(0).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
 // delete selected car method.

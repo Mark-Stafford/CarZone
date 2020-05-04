@@ -22,7 +22,8 @@ class MainApp : Application(), AnkoLogger {
 
     override fun onCreate() {
         super.onCreate()
-        cars = CarMemStore()
+            cars = CarJSONStore(applicationContext)
+
         info("Car started")
     }
 }

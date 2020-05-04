@@ -17,13 +17,17 @@ package="org.wit.car">
     <activity android:name=".activities.CarActivity"></activity>
     <activity android:name=".activities.CarListActivity">
 
+
+
     </activity>
     <activity android:name=".activities.LoginActivity">
+
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+
     </activity>
 
     <meta-data
