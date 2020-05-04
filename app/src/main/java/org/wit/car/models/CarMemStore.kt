@@ -1,3 +1,6 @@
+//Mark Stafford
+//Mobile App Assignment - SSD Year 2
+//Lecturer - Rob O Connor
 package org.wit.car.models
 
 import org.jetbrains.anko.AnkoLogger

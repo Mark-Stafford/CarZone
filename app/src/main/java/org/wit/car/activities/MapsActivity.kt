@@ -41,7 +41,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         map.setOnMarkerClickListener(this)
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Placemark")
+            .title("Carzone")
             .snippet("GPS : " + loc.toString())
             .draggable(true)
             .position(loc)

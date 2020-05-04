@@ -44,7 +44,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
 
-// Edit car details such as model and description.
+// Edit car details such as model and description // takes what the user changing these fields too and saves.
         if (intent.hasExtra("car_edit")) {
             edit = true
             car = intent.extras.getParcelable<CarModel>("car_edit")
@@ -70,7 +70,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
             startActivityForResult(intentFor<MapsActivity>().putExtra("location", location), LOCATION_REQUEST)
         }
 
-// Adding car to the recycler view also if all fields are not entered the car will not be added.
+// Adding car to the recycler view also if all fields are not entered by the user the car will not be added to the list.
         btnAdd.setOnClickListener() {
             car.title = carTitle.text.toString()
             car.description = description.text.toString()
@@ -160,7 +160,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
     }
 
 
-//Changing car image and location.
+//select car image and location.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
