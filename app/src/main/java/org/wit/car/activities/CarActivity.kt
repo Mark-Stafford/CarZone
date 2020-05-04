@@ -69,11 +69,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.save_car)
         }
 
-        LoginButton.setOnClickListener{
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
 
-        }
 
         carLocation.setOnClickListener {
             val location = Location(52.245696, -7.139102, 15f)
