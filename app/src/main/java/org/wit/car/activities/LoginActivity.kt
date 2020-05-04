@@ -54,8 +54,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validate(userName: String, userPassword: String) {
-        if (userName == "Admin" && userPassword == "1234") {
-            val intent = Intent(this@LoginActivity, CarActivity::class.java)
+        if (userName == "Mark" && userPassword == "1234") {
+            val intent = Intent(this@LoginActivity, CarListActivity::class.java)
             startActivity(intent)
         } else {
             counter--
