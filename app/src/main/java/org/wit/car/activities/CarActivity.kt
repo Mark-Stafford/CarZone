@@ -65,6 +65,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
                 chooseImage.setText(R.string.change_car_image)
             }
             btnAdd.setText(R.string.save_car)
+
         }
 
 
@@ -94,60 +95,37 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
             car.doors = doors.text.toString()
             car.model = model.text.toString()
 
-            if (car.title.isEmpty())
+
+            if (car.title.isEmpty() or car.description.isEmpty() or car.enginesize.isEmpty() or car.model.isEmpty() or car.doors.isEmpty())
             {
                 toast(R.string.enter_car_title)
-                toast(R.string.enter_car_title)
+
 
                 app.cars.delete(car)
             } else {
                 if (edit) {
                     app.cars.update(car.copy())
+                } else {
+                    app.cars.create(car.copy())
                 }
-            }
-            if (car.description.isEmpty()) {
-                toast(R.string.enter_cardescription_)
-                app.cars.delete(car)
 
-            } else {
-                if (edit) {
-                    app.cars.update(car.copy())
-                }
-            }
-
-            if (car.enginesize.isEmpty()) {
-                toast(R.string.enter_car_enginesize)
-                app.cars.delete(car)
-
-
-            } else {
-                if (edit) {
-                    app.cars.update(car.copy())
-                }
-            }
-            if (car.model.isEmpty()) {
-                toast(R.string.enter_car_model)
-                app.cars.delete(car)
-
-            } else {
-                if (edit) {
-                    app.cars.update(car.copy())
-                }
-            }
-            if (car.doors.isEmpty()) {
-                toast(R.string.enter_car_doors)
-                app.cars.delete(car)
-            } else {
-                if (edit) {
-                    app.cars.update(car.copy())
-                }
 
                 if (car.title.isNotEmpty() and car.description.isNotEmpty() and car.enginesize.isNotEmpty() and car.model.isNotEmpty() and
                     car.doors.isNotEmpty()
                 ) {
-                    app.cars.create(car.copy())
+                    app.cars.update(car.copy())
+
+
                 }
             }
+
+
+
+
+
+
+
+
 
 
 

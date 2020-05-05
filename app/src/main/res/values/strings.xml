@@ -8,7 +8,7 @@
     <string name="hint_carModel">Model </string>
     <string name="menu_addCar">Add</string>
     <string name="menu_cancelCar">Cancel</string>
-    <string name="enter_car_title"> Please enter a Car Title </string>
+    <string name="enter_car_title"> Please enter All car details </string>
     <string name="enter_car_model"> Please enter the model of the car </string>
     <string name="enter_car_enginesize"> Please enter the engine size </string>
     <string name="enter_cardescription_"> Please enter cars description </string>
