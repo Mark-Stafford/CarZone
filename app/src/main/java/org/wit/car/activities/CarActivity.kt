@@ -2,6 +2,8 @@
 //Mobile App Assignment - SSD Year 2
 //Lecturer - Rob O Connor
 
+
+
 package org.wit.car.activities
 
 import android.support.v7.app.AppCompatActivity
@@ -42,7 +44,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_car)
         app = application as MainApp
-
+        var edit = false
 
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
@@ -92,14 +94,15 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
             car.doors = doors.text.toString()
             car.model = model.text.toString()
 
-            if (car.title.isEmpty()) {
+            if (car.title.isEmpty())
+            {
                 toast(R.string.enter_car_title)
+                toast(R.string.enter_car_title)
+
                 app.cars.delete(car)
             } else {
                 if (edit) {
                     app.cars.update(car.copy())
-                } else {
-                    app.cars.create(car.copy())
                 }
             }
             if (car.description.isEmpty()) {
@@ -138,7 +141,14 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
                 if (edit) {
                     app.cars.update(car.copy())
                 }
+
+                if (car.title.isNotEmpty() and car.description.isNotEmpty() and car.enginesize.isNotEmpty() and car.model.isNotEmpty() and
+                    car.doors.isNotEmpty()
+                ) {
+                    app.cars.create(car.copy())
+                }
             }
+
 
 
             info("add Button Pressed: $carTitle")
@@ -156,10 +166,9 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_car, menu)
-        if (edit && menu != null) menu.getItem(0).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
-// delete selected car method.
+    // delete selected car method.
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_delete -> {
@@ -175,7 +184,7 @@ class CarActivity : AppCompatActivity(), AnkoLogger {
 
 
 
-//select car image and location.
+    //select car image and location.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {

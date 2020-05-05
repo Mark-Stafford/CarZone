@@ -24,6 +24,9 @@ class MainApp : Application(), AnkoLogger {
         super.onCreate()
             cars = CarJSONStore(applicationContext)
 
+
+
+
         info("Car started")
     }
 }
